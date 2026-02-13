@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-13T19:21:37.732Z",
+  "updatedAt": "2026-02-13T19:34:08.356Z",
   "createdAt": "2026-02-13T15:59:22.601Z",
   "id": "JfDoiaEUOmCflqL1JWq-x",
   "name": "Saving Workflows in Github",
@@ -91,7 +91,7 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        -528,
+        -576,
         -128
       ],
       "id": "9bee9356-74fd-49ca-acdd-d115a3e67ec0",
@@ -264,8 +264,8 @@
         "mergeByFields": {
           "values": [
             {
-              "field1": "={{ $json.name }}",
-              "field2": "={{ $json.name }}.json"
+              "field1": "clean_name",
+              "field2": "name"
             }
           ]
         },
@@ -317,6 +317,22 @@
         }
       },
       "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"clean_name\": {{ $json.name.replace('.json','')}}\n}\n",
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -512,
+        -432
+      ],
+      "id": "24dc1bf7-7418-4560-a80a-e2316852eef6",
+      "name": "Edit Fields"
     }
   ],
   "connections": {
@@ -351,14 +367,14 @@
       "main": [
         [
           {
-            "node": "Compare Datasets",
-            "type": "main",
-            "index": 1
-          },
-          {
             "node": "Get a file",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "Compare Datasets",
+            "type": "main",
+            "index": 1
           }
         ]
       ]
@@ -401,7 +417,7 @@
       "main": [
         [
           {
-            "node": "Compare Datasets",
+            "node": "Edit Fields",
             "type": "main",
             "index": 0
           }
@@ -410,7 +426,24 @@
     },
     "Compare Datasets": {
       "main": [
-        []
+        [
+          {
+            "node": "Delete a file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Compare Datasets",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     }
   },
@@ -423,7 +456,7 @@
     "templateCredsSetupCompleted": true
   },
   "pinData": {},
-  "versionId": "e55bce66-8493-45f9-a509-75452246d9c8",
+  "versionId": "f79e050a-36c5-4806-819d-6ed4c28c9b02",
   "activeVersionId": null,
   "triggerCount": 0,
   "shared": [
