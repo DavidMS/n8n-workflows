@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-13T19:19:58.071Z",
+  "updatedAt": "2026-02-13T19:21:37.732Z",
   "createdAt": "2026-02-13T15:59:22.601Z",
   "id": "JfDoiaEUOmCflqL1JWq-x",
   "name": "Saving Workflows in Github",
@@ -91,7 +91,7 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        -544,
+        -528,
         -128
       ],
       "id": "9bee9356-74fd-49ca-acdd-d115a3e67ec0",
@@ -423,7 +423,7 @@
     "templateCredsSetupCompleted": true
   },
   "pinData": {},
-  "versionId": "c0c52498-5bae-407b-9dfe-35551c5e14b7",
+  "versionId": "e55bce66-8493-45f9-a509-75452246d9c8",
   "activeVersionId": null,
   "triggerCount": 0,
   "shared": [
