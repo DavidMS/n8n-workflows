@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-13T19:19:42.926Z",
+  "updatedAt": "2026-02-13T19:19:58.071Z",
   "createdAt": "2026-02-13T15:59:22.601Z",
   "id": "JfDoiaEUOmCflqL1JWq-x",
   "name": "Saving Workflows in Github",
@@ -410,13 +410,7 @@
     },
     "Compare Datasets": {
       "main": [
-        [
-          {
-            "node": "Delete a file",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     }
   },
@@ -429,7 +423,7 @@
     "templateCredsSetupCompleted": true
   },
   "pinData": {},
-  "versionId": "1270e704-121a-4995-a920-c005d03d6d66",
+  "versionId": "c0c52498-5bae-407b-9dfe-35551c5e14b7",
   "activeVersionId": null,
   "triggerCount": 0,
   "shared": [
