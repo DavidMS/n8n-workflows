@@ -1,45 +1,141 @@
-eyJ1cGRhdGVkQXQiOiIyMDI2LTAyLTEyVDEwOjIxOjU3LjY1OVoiLCJjcmVh
-dGVkQXQiOiIyMDI2LTAyLTEyVDEwOjEyOjUzLjEwMloiLCJpZCI6IlpHLUsw
-SDh4UTVzdUd4SXo1TXVFcCIsIm5hbWUiOiJNeSB3b3JrZmxvdyIsImFjdGl2
-ZSI6ZmFsc2UsImlzQXJjaGl2ZWQiOmZhbHNlLCJub2RlcyI6W3sicGFyYW1l
-dGVycyI6eyJvcHRpb25zIjp7fX0sInR5cGUiOiJAbjhuL244bi1ub2Rlcy1s
-YW5nY2hhaW4uY2hhdFRyaWdnZXIiLCJ0eXBlVmVyc2lvbiI6MS40LCJwb3Np
-dGlvbiI6Wy00MzIsLTgwXSwiaWQiOiI1ODJjZWJlNS05MTMyLTQ2ZDQtOGQ5
-YS0xODIzODhmOTlhMTAiLCJuYW1lIjoiV2hlbiBjaGF0IG1lc3NhZ2UgcmVj
-ZWl2ZWQiLCJ3ZWJob29rSWQiOiI1MzA2YTJhNi0wYTg2LTRhYTktOGFmMS1l
-NzE2Mjc5OTIzYjgifSx7InBhcmFtZXRlcnMiOnsib3B0aW9ucyI6e319LCJ0
-eXBlIjoiQG44bi9uOG4tbm9kZXMtbGFuZ2NoYWluLmFnZW50IiwidHlwZVZl
-cnNpb24iOjMuMSwicG9zaXRpb24iOlstMjI0LC04MF0sImlkIjoiN2IxODNm
-YTQtNDM5Ny00MTBiLWFhNDctYjIxNGE5MWQ5ZGRhIiwibmFtZSI6IkFJIEFn
-ZW50In0seyJwYXJhbWV0ZXJzIjp7Im1vZGVsIjp7Il9fcmwiOnRydWUsInZh
-bHVlIjoiZ3B0LTUtbWluaSIsIm1vZGUiOiJsaXN0IiwiY2FjaGVkUmVzdWx0
-TmFtZSI6ImdwdC01LW1pbmkifSwiYnVpbHRJblRvb2xzIjp7fSwib3B0aW9u
-cyI6e319LCJ0eXBlIjoiQG44bi9uOG4tbm9kZXMtbGFuZ2NoYWluLmxtQ2hh
-dE9wZW5BaSIsInR5cGVWZXJzaW9uIjoxLjMsInBvc2l0aW9uIjpbLTM2OCwx
-MjhdLCJpZCI6ImExNDcyOTNlLWU2ZDUtNDIzYS04MjAwLTQxYTQxYzc1Yjk2
-ZCIsIm5hbWUiOiJPcGVuQUkgQ2hhdCBNb2RlbCIsImNyZWRlbnRpYWxzIjp7
-Im9wZW5BaUFwaSI6eyJpZCI6InpUVXAzbm04RTJoRUw2QlIiLCJuYW1lIjoi
-T3BlbkFpIGFjY291bnQifX19LHsicGFyYW1ldGVycyI6eyJvcGVyYXRpb24i
-OiJnZXRBbGwiLCJ0YWJsZUlkIjoiZG9jdW1lbnRzIn0sInR5cGUiOiJuOG4t
-bm9kZXMtYmFzZS5zdXBhYmFzZVRvb2wiLCJ0eXBlVmVyc2lvbiI6MSwicG9z
-aXRpb24iOlstODAsMTI4XSwiaWQiOiJjYzVmODI4Yi1hOGFlLTQ0NWEtODQ3
-NC00NjNiNDRlZTYzNGEiLCJuYW1lIjoiR2V0IG1hbnkgcm93cyBpbiBTdXBh
-YmFzZSIsImNyZWRlbnRpYWxzIjp7InN1cGFiYXNlQXBpIjp7ImlkIjoiSTla
-T0I0WENja3hTcjNWWSIsIm5hbWUiOiJTdXBhYmFzZSBhY2NvdW50In19fV0s
-ImNvbm5lY3Rpb25zIjp7IldoZW4gY2hhdCBtZXNzYWdlIHJlY2VpdmVkIjp7
-Im1haW4iOltbeyJub2RlIjoiQUkgQWdlbnQiLCJ0eXBlIjoibWFpbiIsImlu
-ZGV4IjowfV1dfSwiT3BlbkFJIENoYXQgTW9kZWwiOnsiYWlfbGFuZ3VhZ2VN
-b2RlbCI6W1t7Im5vZGUiOiJBSSBBZ2VudCIsInR5cGUiOiJhaV9sYW5ndWFn
-ZU1vZGVsIiwiaW5kZXgiOjB9XV19LCJHZXQgbWFueSByb3dzIGluIFN1cGFi
-YXNlIjp7ImFpX3Rvb2wiOltbeyJub2RlIjoiQUkgQWdlbnQiLCJ0eXBlIjoi
-YWlfdG9vbCIsImluZGV4IjowfV1dfX0sInNldHRpbmdzIjp7ImV4ZWN1dGlv
-bk9yZGVyIjoidjEiLCJhdmFpbGFibGVJbk1DUCI6ZmFsc2V9LCJzdGF0aWNE
-YXRhIjpudWxsLCJtZXRhIjp7InRlbXBsYXRlQ3JlZHNTZXR1cENvbXBsZXRl
-ZCI6dHJ1ZX0sInBpbkRhdGEiOnt9LCJ2ZXJzaW9uSWQiOiJiYWQ5YTYyZS0y
-MTI4LTQ3OTEtOTAwYS0wOWZlYzU1OTA4MDMiLCJhY3RpdmVWZXJzaW9uSWQi
-Om51bGwsInRyaWdnZXJDb3VudCI6MCwic2hhcmVkIjpbeyJ1cGRhdGVkQXQi
-OiIyMDI2LTAyLTEyVDEwOjEyOjUzLjEwNFoiLCJjcmVhdGVkQXQiOiIyMDI2
-LTAyLTEyVDEwOjEyOjUzLjEwNFoiLCJyb2xlIjoid29ya2Zsb3c6b3duZXIi
-LCJ3b3JrZmxvd0lkIjoiWkctSzBIOHhRNXN1R3hJejVNdUVwIiwicHJvamVj
-dElkIjoiNDhhaGFxR29NQVU1S2RFMCJ9XSwiYWN0aXZlVmVyc2lvbiI6bnVs
-bCwidGFncyI6W119
+{
+  "updatedAt": "2026-02-12T10:21:57.659Z",
+  "createdAt": "2026-02-12T10:12:53.102Z",
+  "id": "ZG-K0H8xQ5suGxIz5MuEp",
+  "name": "My workflow",
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -432,
+        -80
+      ],
+      "id": "582cebe5-9132-46d4-8d9a-182388f99a10",
+      "name": "When chat message received",
+      "webhookId": "5306a2a6-0a86-4aa9-8af1-e716279923b8"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -224,
+        -80
+      ],
+      "id": "7b183fa4-4397-410b-aa47-b214a91d9dda",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-5-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-5-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        -368,
+        128
+      ],
+      "id": "a147293e-e6d5-423a-8200-41a41c75b96d",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "zTUp3nm8E2hEL6BR",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "documents"
+      },
+      "type": "n8n-nodes-base.supabaseTool",
+      "typeVersion": 1,
+      "position": [
+        -80,
+        128
+      ],
+      "id": "cc5f828b-a8ae-445a-8474-463b44ee634a",
+      "name": "Get many rows in Supabase",
+      "credentials": {
+        "supabaseApi": {
+          "id": "I9ZOB4XCckxSr3VY",
+          "name": "Supabase account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many rows in Supabase": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "bad9a62e-2128-4791-900a-09fec5590803",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2026-02-12T10:12:53.104Z",
+      "createdAt": "2026-02-12T10:12:53.104Z",
+      "role": "workflow:owner",
+      "workflowId": "ZG-K0H8xQ5suGxIz5MuEp",
+      "projectId": "48ahaqGoMAU5KdE0"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
