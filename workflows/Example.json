@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-02-13T19:20:09.831Z",
+  "updatedAt": "2026-02-13T19:20:41.000Z",
   "createdAt": "2026-02-13T19:20:09.831Z",
   "id": "UdagLWQOrh8fCr7abdOrR",
   "name": "Example",
   "active": false,
-  "isArchived": false,
+  "isArchived": true,
   "nodes": [],
   "connections": {},
   "settings": {
@@ -14,7 +14,7 @@
   "staticData": null,
   "meta": null,
   "pinData": {},
-  "versionId": "a3dfd46f-df89-4af4-af81-705ff9de4929",
+  "versionId": "956540d6-5bab-424f-97e1-524349be6289",
   "activeVersionId": null,
   "triggerCount": 0,
   "shared": [
