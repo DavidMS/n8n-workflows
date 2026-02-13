@@ -1,0 +1,141 @@
+{
+  "updatedAt": "2026-02-13T19:13:35.000Z",
+  "createdAt": "2026-02-12T10:12:53.102Z",
+  "id": "ZG-K0H8xQ5suGxIz5MuEp",
+  "name": "My workflow",
+  "active": false,
+  "isArchived": true,
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -432,
+        -80
+      ],
+      "id": "582cebe5-9132-46d4-8d9a-182388f99a10",
+      "name": "When chat message received",
+      "webhookId": "5306a2a6-0a86-4aa9-8af1-e716279923b8"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -224,
+        -80
+      ],
+      "id": "7b183fa4-4397-410b-aa47-b214a91d9dda",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-5-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-5-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        -368,
+        128
+      ],
+      "id": "a147293e-e6d5-423a-8200-41a41c75b96d",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "zTUp3nm8E2hEL6BR",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "documents"
+      },
+      "type": "n8n-nodes-base.supabaseTool",
+      "typeVersion": 1,
+      "position": [
+        -80,
+        128
+      ],
+      "id": "cc5f828b-a8ae-445a-8474-463b44ee634a",
+      "name": "Get many rows in Supabase",
+      "credentials": {
+        "supabaseApi": {
+          "id": "I9ZOB4XCckxSr3VY",
+          "name": "Supabase account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many rows in Supabase": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "25704bc4-0997-473f-be9f-8beef0898d86",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2026-02-12T10:12:53.104Z",
+      "createdAt": "2026-02-12T10:12:53.104Z",
+      "role": "workflow:owner",
+      "workflowId": "ZG-K0H8xQ5suGxIz5MuEp",
+      "projectId": "48ahaqGoMAU5KdE0"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
