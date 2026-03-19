@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-13T19:34:08.356Z",
+  "updatedAt": "2026-03-19T18:02:41.002Z",
   "createdAt": "2026-02-13T15:59:22.601Z",
   "id": "JfDoiaEUOmCflqL1JWq-x",
   "name": "Saving Workflows in Github",
@@ -68,7 +68,7 @@
           "parameters": [
             {
               "name": "X-N8N-API-KEY",
-              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3MjNmOTBjYS03ZjQ1LTRiODYtYmI5Ni0yNDI1OTlkM2ZkZGUiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwiaWF0IjoxNzcwOTk4MzIxLCJleHAiOjE3NzM1MjkyMDB9.QUw602Ul7Fb07LsRf5UAMI1BZksNPiYdCPf4kZJSz0g"
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3MjNmOTBjYS03ZjQ1LTRiODYtYmI5Ni0yNDI1OTlkM2ZkZGUiLCJpc3MiOiJuOG4iLCJhdWQiOiJwdWJsaWMtYXBpIiwiaWF0IjoxNzczOTQzMzQ1fQ.YYVUqjAus2l9OUXFBuckeGdvbQiHtzqGxEIN6Xea12g"
             }
           ]
         },
@@ -456,7 +456,7 @@
     "templateCredsSetupCompleted": true
   },
   "pinData": {},
-  "versionId": "f79e050a-36c5-4806-819d-6ed4c28c9b02",
+  "versionId": "3b4c7ef5-8fa6-48fa-8492-472a138134e3",
   "activeVersionId": null,
   "triggerCount": 0,
   "shared": [
