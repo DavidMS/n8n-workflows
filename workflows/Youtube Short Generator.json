@@ -1,0 +1,386 @@
+{
+  "updatedAt": "2026-02-14T15:51:57.011Z",
+  "createdAt": "2026-02-14T08:23:50.604Z",
+  "id": "fJqE9NGJSOPgRpLuDcnlI",
+  "name": "Youtube Short Generator",
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -864,
+        -64
+      ],
+      "id": "86fe6506-620f-4bf0-83de-8cf51949d4df",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-5-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-5-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "role": "system",
+              "content": "Creas conceptos para videos en base a user query.\n\nLa salida será el siguiente JSON:\n\n{\n  \"Script\": {\n    \"Intro\": \"40-70 caracteres\",\n    \"Base\": \"280-350 caracteres\",\n    \"CTA\": \"55 caracteres\"\n  },\n  \"Titulo\": \"30-50 caracteres (corto y con gancho), que despierte la curiosidad\",\n  \"Descripcion\": \"50-150 caracteres (corto, con hashtags clave), con un gancho. Añade contexto, CTA y hashtags.\"\n}"
+            },
+            {
+              "content": "<user-query>\nLa importancia de estar presente\n</user-query>"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {
+          "textFormat": {
+            "textOptions": {
+              "type": "json_object"
+            }
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        -336,
+        -64
+      ],
+      "id": "2a56559c-f190-4d82-a120-12665ac8b8e1",
+      "name": "Ideator",
+      "credentials": {
+        "openAiApi": {
+          "id": "zTUp3nm8E2hEL6BR",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "41fc9d36-4acd-461a-ad53-b53a154b3228",
+              "name": "Script",
+              "value": "={{ $json.output[0].content[0].text.Script.Intro }}{{ $json.output[0].content[0].text.Script.Base }}{{ $json.output[0].content[0].text.Script.CTA }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        16,
+        -64
+      ],
+      "id": "110bebd7-ed89-4440-acd9-54f0141048f2",
+      "name": "Script"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.elevenlabs.io/v1/text-to-speech/Vpv1YgvVd6CHIzOTiTt8/with-timestamps?ouput_format=mp3_44100_128",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "xi-api-key",
+              "value": "sk_08f4c283c2cfcc74fafccc9ef181062b06a77c32e9c17c96"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "text",
+              "value": "={{ $json.Script }}"
+            },
+            {
+              "name": "model_id",
+              "value": "eleven_multilingual_v2"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        272,
+        -64
+      ],
+      "id": "65c4b741-688f-4edb-b9f0-6be1573aac1f",
+      "name": "Script Voice Generator"
+    },
+    {
+      "parameters": {
+        "jsCode": "const allResults = [];\nconst targetInterval = 6;\n\nfor (const item of $input.all()) {\n    const alignmentData = item.json;\n    const chars = alignmentData.alignment.characters;\n    const endTimes = alignmentData.alignment.character_end_times_seconds;\n    \n    let segmentId = 1;\n    let startIndex = 0;\n    let segmentStartTime = 0;\n\n    for (let i = 0; i < chars.length; i++) {\n        const charEndTime = endTimes[i];\n        const isLastChar = (i === chars.length - 1);\n\n        // Si hemos superado los 6 segundos Y el carácter actual es un espacio (fin de palabra)\n        // O si es el final absoluto del texto\n        if ((charEndTime >= segmentStartTime + targetInterval && chars[i] === \" \") || isLastChar) {\n            \n            const segmentText = chars.slice(startIndex, i + 1).join(\"\").trim();\n            \n            allResults.push({\n                json: {\n                    id: segmentId++,\n                    text: segmentText,\n                    duration: Number((charEndTime - segmentStartTime).toFixed(2)),\n                    start_time: Number(segmentStartTime.toFixed(2)),\n                    end_time: Number(charEndTime.toFixed(2))\n                }\n            });\n\n            // El siguiente bloque empieza justo después de este\n            startIndex = i + 1;\n            segmentStartTime = charEndTime;\n        }\n    }\n}\n\nreturn allResults;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        480,
+        -64
+      ],
+      "id": "94c41690-445d-40b7-8b2e-6339a02270fa",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-5-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-5-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "role": "system",
+              "content": "You are an image prompt generator agent for video production. Your role is to create starting frames for longer video by transforming script segments into visually descriptive image prompts.\n\nOutput a JSON object containing the prompt for the current script segment that you are presented with:\n{\n  \"Prompt\": \"enter prompt here\"\n}\n\nYour prompts should visually describe the starting frame for that 6-second scene and set the tone for the video scene you receive.\n\nIMPORTANT INSTRUCTIONS:\n- Never include text in the images, it cannot be animated later\n- Always include the keyword \"flikr photo from 2021\" in your prompt\n- Never exceed 240 characters in your prompt\n- Keep images EXTREMELY simple, don't make things that the video generation model will fail to animate, ai is not good at humans, complex movements, etc. BUT it's really good at landscapes, POV shots, close ups, etc.\n\n-----"
+            },
+            {
+              "content": "=Here is the full script:\n\n{{ $('Script').item.json.Script }}\n\nHere's the current scene:\nscript portion: {{ $json.text }}\nscript position: {{ $json.id }}\n\n"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {
+          "textFormat": {
+            "textOptions": {
+              "type": "json_object"
+            }
+          }
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        688,
+        -64
+      ],
+      "id": "88dcee82-dc07-4043-b6af-283d17541816",
+      "name": "Image prompter",
+      "credentials": {
+        "openAiApi": {
+          "id": "zTUp3nm8E2hEL6BR",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "model": "gpt-image-1",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.1,
+      "position": [
+        1024,
+        -64
+      ],
+      "id": "b1d3b034-1dbf-413c-bd06-862dcf62283a",
+      "name": "Generate an image",
+      "credentials": {
+        "openAiApi": {
+          "id": "zTUp3nm8E2hEL6BR",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "=/data/frame_{{ json.node.id }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1.1,
+      "position": [
+        1248,
+        -64
+      ],
+      "id": "32eadd63-97ea-4b75-ad30-f988f86010c5",
+      "name": "Read/Write Files from Disk1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Este código no usa 'fs', así que no dará error\nconst base64Audio = $input.item.json.audio_base64; \n\nreturn {\n  json: {\n    fileName: \"audio.mp3\"\n  },\n  binary: {\n    data: {\n      data: base64Audio,\n      mimeType: \"audio/mpeg\",\n      fileName: \"audio.mp3\"\n    }\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        672,
+        -288
+      ],
+      "id": "9e8f539b-ad2c-459a-9589-152073b412b0",
+      "name": "Code in JavaScript1",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "/tmp/audio.mp3",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1.1,
+      "position": [
+        944,
+        -288
+      ],
+      "id": "8f3b3ae4-e876-43c2-abb6-70aebdc1fbc6",
+      "name": "Read/Write Files from Disk"
+    },
+    {
+      "parameters": {
+        "command": "chmod 777 /tmp && chmod 777 /home/node/.n8n"
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        -608,
+        -64
+      ],
+      "id": "8b0fec9a-fd1f-4976-bb3b-64d40815cd4d",
+      "name": "Execute Command"
+    }
+  ],
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Execute Command",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ideator": {
+      "main": [
+        [
+          {
+            "node": "Script",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Script": {
+      "main": [
+        [
+          {
+            "node": "Script Voice Generator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Script Voice Generator": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Image prompter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Image prompter": {
+      "main": [
+        [
+          {
+            "node": "Generate an image",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate an image": {
+      "main": [
+        []
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "Read/Write Files from Disk",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read/Write Files from Disk": {
+      "main": [
+        []
+      ]
+    },
+    "Execute Command": {
+      "main": [
+        [
+          {
+            "node": "Ideator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "6c7f0006-7ea5-43c2-93e4-5738b27bd6d8",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2026-02-14T08:23:50.606Z",
+      "createdAt": "2026-02-14T08:23:50.606Z",
+      "role": "workflow:owner",
+      "workflowId": "fJqE9NGJSOPgRpLuDcnlI",
+      "projectId": "48ahaqGoMAU5KdE0"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
